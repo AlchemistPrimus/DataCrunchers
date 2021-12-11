@@ -1,0 +1,47 @@
+body {
+    box-sizing: border-box;
+    color: white;
+    background-image: url('../files/geoAI.jpg');
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+}
+
+h1 {
+    font-size: 2.5em;
+}
+
+.navbarArea {
+    color: white;
+    background-color: rgb(6, 31, 59);
+}
+
+.footerArea {
+    padding: 2em;
+    color: white;
+    background-color: rgb(6, 31, 59);
+}
+
+.mapArea {
+    height: 80vh;
+}
+
+.map {
+    width: 100%;
+    height: 65vh;
+}
+
+.col-md-3 {
+    padding: 2em;
+}
+
+.mapArea {
+    color: white;
+    padding: 2em;
+    background-color: rgba(6, 31, 59, 0.801);
+}
+
+.para {
+    font-size: 1.3em;
+    background-color: rgba(0, 0, 0, 0.466);
+}

@@ -1,0 +1,34 @@
+{%extends "base.html"%}
+{%block head%}
+{{super()}}
+<link rel="stylesheet" href="{{url_for('static',filename='styles/styles.css')}}" type="text/css">
+{%endblock%}
+
+{%block content%}
+<div class="continer-fluid BodyArea">
+    <div class="row">
+        <div class="col-md-3">
+            <h1>D-CRUNCHERS</h1>
+            <p><span class="para"> Using Machine Learning and Artificial Intelligence, and Big data trechnologies we map geospatial data showing distribution of health facilities and deseases making necessary predictions on epidermic outbreak hence helping control further disasters. Distribution of health facilities can leverage resource allocation and enable fair distribution of resources by the government.</span></p>
+        </div>
+        <div class="col-md-9 mapArea">
+            <h4>Geospatial mapping of 2019 census data</h4>
+            <p>Geospatial mapping and Machine Learning software for Health data. This is a resource and disease distribution indicator software.</p>
+            <div class="mapping">
+                <iframe class="map", src="{{url_for('routes.map')}}"></iframe>
+                <h3><b style="background-color: lightcoral; color: lightcyan;">
+                </b></h3>
+            </div>
+        </div>
+        <!--<div class="col-md-3">
+            <h4>Geometry Creation</h4>
+            <ul>
+                <li>Convex hull</li>
+                <li>Buffer</li>
+            </ul>
+            <h4>Geometry relations</h4>
+            <h4>Projections</h4>
+        </div>-->
+    </div>
+</div>
+{%endblock%}
