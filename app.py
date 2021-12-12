@@ -1,3 +1,4 @@
+"""This is the factory function that starts the application when called by the main file."""
 from flask import Flask
 from endpoints import routes
 
