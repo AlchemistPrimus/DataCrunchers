@@ -1,12 +1,12 @@
 """This is the app's endpoint that is responsible for rendering data to the html files. Processed data(information) passed through this file to find their way to the web."""
-from flask import render_template, Blueprint
+from flask import render_template,Flask
 import folium
 import pandas as pd
 import geopandas as gpd
 import json
 import requests
 
-routes=Blueprint("routes",__name__)
+app=Flask(__name__)
 
 url = (
     "https://raw.githubusercontent.com/python-visualization/folium/master/examples/data"
@@ -21,12 +21,12 @@ kc_latitude=coordinates[0]
 kc_longitude=coordinates[1]
 
 
-@routes.route("/",methods=["GET"])
+@app.route("/",methods=["GET"])
 def index():
     
     return render_template("index.html")
 
-@routes.route('/map')
+@app.route('/map')
 def map():
     """Displays visualizations of Hospitals per county."""
     
@@ -74,7 +74,7 @@ def map():
     
     return render_template('my_map')
 
-@routes.route('/map1')
+@app.route('/map1')
 def map1():
     #Community health units
     status_of_community_health_units= gpd.read_file('gdf_number_and_status_of_community_health_units.geojson')
@@ -122,7 +122,7 @@ def map1():
     return render_template("community_h_u")
     
 
-@routes.route("/map2")
+@app.route("/map2")
 def map2():
     #Mapping internet access
     internet_through_mobile= gpd.read_file('gdf_internet_through_mobile.geojson')
@@ -171,7 +171,7 @@ def map2():
     return render_template("internet_usage")
 
 
-@routes.route("/map3")
+@app.route("/map3")
 def map3():
     #mapping fixed internet at home
     fixed_internet_at_home = gpd.read_file('gdf_fixed_internet_at_home.geojson')
@@ -219,7 +219,7 @@ def map3():
     return render_template("internet_fixed")
 
 
-@routes.route("/map4")
+@app.route("/map4")
 def map4():
     #Mapping health staff percentage change
     health_staff_percentage_change = gpd.read_file('gdf_health_staff_percentage_change.geojson')
@@ -265,7 +265,7 @@ def map4():
     return render_template("health_s_percentage")
     
     
-@routes.route("/map5")
+@app.route("/map5")
 def map5():
     #Mapping internet users
     internet_users = gpd.read_file('gdf_internet_users.geojson')
@@ -312,7 +312,7 @@ def map5():
     
     return render_template("net_users")
 
-@routes.route("/map6")
+@app.route("/map6")
 def map6():
     #Mapping place of birth
     gdf_place_of_birth = gpd.read_file('gdf_place_of_birth.geojson')
@@ -358,4 +358,8 @@ def map6():
     place_of_birth.save("templates/place_birth")
     
     return render_template("place_birth")
+
+
+if __name__=="__main__":
+    app.run(debug=True)
     
