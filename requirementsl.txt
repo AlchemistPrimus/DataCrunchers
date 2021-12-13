@@ -1,4 +1,5 @@
-flask
-folium
+Flask
+Folium
 geopandas
 pandas
+gunicorn
