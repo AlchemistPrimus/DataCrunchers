@@ -5,7 +5,7 @@ from endpoints import routes
 app=Flask(__name__)
     
     
-app.register_blueprint(routes)
+#app.register_blueprint(routes)
     
    
 
